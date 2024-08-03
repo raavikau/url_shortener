@@ -5,10 +5,14 @@
     <title>URL Shortener</title>
 </head>
 <body>
-    <h1>URL Shortener</h1>
+    <h3>URL Shortener</h3>
     <form method="POST" action="{{url_for('index')}}">
         <input type="url" name="long_url" placeholder="Enter the long URL" required>
         <button type="submit">URL Shortener</button>
     </form>
+    <br>
+    {% if short_url %}
+        <span><a href="{{short_url}}">Your Shortener URL is : {{request.root_url + short_url}}</a> </span>
+    {% endif %}
     </body>
 </html>
